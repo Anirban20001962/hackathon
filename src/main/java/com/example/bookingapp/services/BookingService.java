@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.example.bookingapp.repositories.BookRepository;
 
@@ -17,7 +18,9 @@ public class BookingService {
 
     public List<Book> getAllBookingsForEvent(int eventId) {
         List<Book> books = new ArrayList<>();
-        this.bookRepository.findAllByEventId(eventId).forEach(t -> books.add(t));
+        this.bookRepository.findAll().forEach(t -> books.add(t));
+        books.stream()
+                .filter(b -> b.getEvent().getId() == eventId).collect(Collectors.toList());
         return books;
     }
 
