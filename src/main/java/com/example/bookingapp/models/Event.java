@@ -2,8 +2,6 @@ package com.example.bookingapp.models;
 
 import java.util.Date;
 
-import com.example.utils.EventType;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
